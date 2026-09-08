@@ -1,0 +1,7 @@
+Så här använder du den sedan
+Kommandot körs i terminalen (VS Code: Ctrl+`), från backend-mappen:
+
+cd backend
+export $(cat .env | xargs) && python main.py
+
+Då händer det rätta: shellen läser .env → exporterar variablerna → Python startar → os.environ.get("APP_TOKEN") plockar upp dem. Kommandot är alltså leveransmekanismen för hemligheterna till koden — koden själv ska aldrig innehålla det.
