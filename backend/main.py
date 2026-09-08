@@ -1,3 +1,4 @@
+export $(cat .env | xargs) && python main.py
 """
 Building-Monitor backend:
 MQTT consumer -> validation -> SQLite -> REST API (token protected).
