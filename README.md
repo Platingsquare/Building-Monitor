@@ -11,4 +11,3 @@ Byggt som projekt i kursen Nätverk och systemintegration (IoT25).
 lokala ändringar.
 
 ## Arkitektur
-
