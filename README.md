@@ -22,8 +22,25 @@ Byggt som projekt i kursen **Nätverk och systemintegration** (IoT25, STI).
 | **Databas (SQLite)** | Persistence av telemetri | SQLite-fil |
 
 ## Repo-struktur
-Building-Monitor/ ├── backend/ # Flask API + MQTT-konsument + SQLite │ ├── main.py # Server + validering + REST │ ├── requirements.txt │ ├── .env.example # Mall — kopiera till .env (committas aldrig!) │ └── README.md # Detaljerade startinstruktioner ├── esp32/ # C++-firmware: DHT11 → JSON → MQTT │ └── main.cpp # Arduino/PlatformIO-kod, watchdog, backoff ├── mosquitto/ │ └── config/ │ └── mosquitto.conf # Broker-konfiguration (TLS förberedd) ├── docs/ │ ├── arkitektur.md │ ├── api.md │ ├── sakerhet.md │ └── felsokning.md ├── docker-compose.yml # Mosquitto-broker i container ├── .gitignore └── README.md # Den här filen
-
+```
+Building-Monitor/
+├── backend/     # Flask API + MQTT-konsument + SQLite  
+|  ├── main.py     # Server + validering + REST 
+|  ├── requirements.txt │ 
+|  ├── .env.example     # Mall — kopiera till .env (committas aldrig!) 
+|  └── README.md     # Detaljerade startinstruktioner
+├── esp32/ # C++-firmware: DHT11 → JSON → MQTT 
+│ └── main.cpp # Arduino/PlatformIO-kod, watchdog, backoff ├── mosquitto/
+│ └── config/ │ └── mosquitto.conf # Broker-konfiguration (TLS förberedd) 
+├── docs/ 
+│ ├── arkitektur.md 
+│ ├── api.md 
+│ ├── sakerhet.md 
+│ └── felsokning.md 
+├── docker-compose.yml     # Mosquitto-broker i container 
+├── .gitignore 
+└── README.md     # Den här filen
+```
 
 ## Sprints
 
