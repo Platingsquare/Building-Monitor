@@ -193,3 +193,10 @@ Sex fullständigt dokumenterade felsökningsfall (symptom → identifiering → 
 - **PlatformIO framför Arduino IDE:** projektstruktur, beroendehantering, versionsvänligt
 - **Watchdog (TWDT):** automatisk reboot vid hängd firmware — driftsäkerhet för obevakade noder
 - **Docker för broker:** reproducerbar drift, enkelt att sätta upp hos annan utvecklare
+
+## Framtida utveckling
+
+- TLS på broker (port 8883) + broker-autentisering
+- Grafana-dashboard med historiska grafer
+- Integration mot externt väder-API
+- Ytterligare felinjektionstester (t.ex. brokersvikt under pågående publicering)
