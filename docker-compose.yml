@@ -1,13 +1,21 @@
 services:
-  mosquitto:
-    image: eclipse-mosquitto:2.0
-    container_name: iot-mosquitto
-    restart: unless-stopped
+  broker:
+    image: eclipse-mosquitto:2
     ports:
       - "1883:1883"
-      - "8883:8883"
     volumes:
       - ./mosquitto/config:/mosquitto/config
-      - ./mosquitto/data:/mosquitto/data
-      - ./mosquitto/log:/mosquitto/log
-      - ./mosquitto/certs:/mosquitto/certs:ro
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - APP_TOKEN=${APP_TOKEN:-change-me}
+      - MQTT_BROKER=broker
+      - MQTT_PORT=1883
+      - MQTT_TOPIC=building/telemetry
+    depends_on:
+      - broker
+    restart: unless-stopped

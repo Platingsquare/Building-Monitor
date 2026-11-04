@@ -16,7 +16,7 @@ import paho.mqtt.client as mqtt
 
 APP_TOKEN = os.environ.get("APP_TOKEN", "change-me")
 DB_PATH = "telemetry.db"
-MQTT_BROKER = os.environ.get("MQTT_BROKER", "localhost")
+MQTT_BROKER = os.environ.get("MQTT_BROKER", "broker")
 MQTT_PORT = int(os.environ.get("MQTT_PORT", 1883))
 MQTT_TOPIC = "building/telemetry"
 
@@ -82,8 +82,17 @@ def on_message(client, userdata, msg):
 def start_mqtt():
     client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
     client.on_message = on_message
+
+    def on_connect(client, userdata, flags, reason_code, properties):
+        if reason_code == 0:
+            print("Connected to MQTT broker", flush=True)
+            client.subscribe(MQTT_TOPIC)
+            print(f"Subscribed to: {MQTT_TOPIC}", flush=True)
+        else:
+            print(f"Connection failed: {reason_code}", flush=True)
+
+    client.on_connect = on_connect
     client.connect(MQTT_BROKER, MQTT_PORT, 60)
-    client.subscribe(MQTT_TOPIC)
     client.loop_forever()
 
 @app.route("/api/health", methods=["GET"])
