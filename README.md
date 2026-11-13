@@ -82,7 +82,7 @@ Building-Monitor/
 | Backend | ✅ | Flask-API: MQTT-konsument, Pydantic-validering, SQLite, token-skyddad REST, /api/health |
 | Wi-Fi | ✅ | ESP32-C6 ansluter 2,4 GHz-nätverk med retry/backoff |
 | Sensor + MQTT | ✅ | DHT11 publicerar JSON via MQTT var 5:e sekund — 800+ meddelanden verifierade |
-| Externa API services | ⬜ | Externa API:er (väder) |
+| Externa API services | ✅ | Externa API:er (väder) |
 | Grafana | ⬜ | Dashboard |
 | Säkerhet | ✅ | Token-auth på REST ✔ — TLS (8883) + broker-lösenord återstår |
 | Robusthet | ✅ | Watchdog + backoff i firmware ✔, felinjektionstester + felsökningsdok ✔ — ytterligare felinjektion återstår |
