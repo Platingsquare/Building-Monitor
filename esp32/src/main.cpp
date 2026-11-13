@@ -15,7 +15,7 @@ const char* WIFI_SSID = "DITT_SSID";// 2.4 GHz network — ESP32 cannot see 5 GH
 const char* WIFI_PASS = "DITT_LOSENORD";// Your WiFi password
 const char* MQTT_HOST = "DIN_DATORS_IP";// Wireless LAN adapter Wi-Fi IPv4 (ipconfig)
 const int   MQTT_PORT = 1883;
-const char* MQTT_TOPIC = "building/telemetry";
+const char* MQTT_TOPIC = "building/telemetry_X"; // AVSIKTLIGT FEL: topic matchar inte backendens prenumeration
 const char* MQTT_CLIENT_ID = "ESP32_Climate_Node_01";
 
 DHT dht(DHTPIN, DHTTYPE);
